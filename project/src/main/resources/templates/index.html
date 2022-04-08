@@ -1,17 +1,12 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>ISBN</th>
-            <th>Year of Publishing</th>
-        </tr>
-        <tr th:each="book : ${books}">
-            <td th:text="${book.getTitle()}"></td>
-            <td th:text="${book.getAuthor()}"></td>
-            <td th:text="${book.getISBN()}"></td>
-            <td th:text="${book.getYearOfPublishing()}"></td>
-        </tr>
-    </table>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <a th:href="@{/book/}">Click to see books list!</a>
+</div>
+</body>
 </html>

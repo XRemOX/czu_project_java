@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Books</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2" align="center">
+    <a th:href="@{book/addNew}" class="btn btn-primary btn-sm mb-3">Add Book</a>
+    <table style="width:80%" border="1"
+           class="table table-striped table-responsive-md">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Year of Publishing</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.getTitle()}"></td>
+            <td th:text="${book.getAuthor()}"></td>
+            <td th:text="${book.getISBN()}"></td>
+            <td th:text="${book.getYearOfPublishing()}"></td>
+            <td><a th:href="@{/book/showFormForUpdate/{id}(id=${book.getId()})}"
+                   class="btn btn-primary">Update</a>
+                <a th:href="@{/book/delete/{id}(id=${book.getId()})}"
+                   class="btn btn-danger">Delete</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
