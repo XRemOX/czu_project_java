@@ -2,9 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add new library</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
 </head>
 <body>
+<div class="container text-center">
+    <div><h1>Add new library</h1></div>
 
+    <form th:action="@{/library/save}" th:object="${library}" method="post">
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                <label class="col-form-label">Library name: </label>
+            </div>
+            <div class="col-auto">
+                <input type="text" th:field="*{name}" class="form-control" required/>
+            </div>
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label class="col-form-label">Founded: </label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" th:field="*{founded}" class="form-control" required/>
+                </div>
+            </div>
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label class="col-form-label">Address: </label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" th:field="*{address}" class="form-control" required/>
+                </div>
+            </div>
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label class="col-form-label">City: </label>
+                </div>
+                <div class="col-auto">
+                    <select th:field="*{city}" class="form-control" required>
+                        <th:block th:each="city : ${cities}">
+                            <option th:text="${city.name}" th:value="${city.id}"/>
+                        </th:block>
+                    </select>
+                </div>
+            </div>
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label class="col-form-label">Books: </label>
+                </div>
+                <div class="col-auto">
+                    <th:block th:each="book : ${books}">
+                        <div>
+                            <input type="checkbox" th:field="*{books}" th:text="${book.title}" th:value="${book.id}"/>
+                        </div>
+                    </th:block>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
+    <a th:href="@{/library/}">Back to Library List</a>
+</div>
 </body>
 </html>

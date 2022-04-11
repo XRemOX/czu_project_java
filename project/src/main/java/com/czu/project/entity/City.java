@@ -1,6 +1,7 @@
 package com.czu.project.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,15 +35,7 @@ public class City {
     @Column(name = "lang")
     private String lang;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "city", fetch = FetchType.LAZY)
-    private List<Library> libraries;
-
-    public void addLibraryToCity(Library library) {
-        if (libraries == null) {
-            libraries = new ArrayList<>();
-        }
-        libraries.add(library);
-        library.setCity(this);
-    }
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "city", fetch = FetchType.EAGER)
+    @JsonManagedReference
+    private List<Library> libraries = new ArrayList<>();
 }

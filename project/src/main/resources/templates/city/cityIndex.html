@@ -2,9 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>List of cities</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
 </head>
 <body>
-
+<div class="container text-center">
+    <div><h1>City List</h1></div>
+    <a th:href="@{/city/addNew}" class="btn btn-primary btn-sm mb-3">Add City</a>
+    <div>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Area Code</th>
+                <th>Country</th>
+                <th>Language</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="city : ${cities}">
+                <tr>
+                    <td>[[${city.name}]]</td>
+                    <td>[[${city.areaCode}]]</td>
+                    <td>[[${city.country}]]</td>
+                    <td>[[${city.lang}]]</td>
+                    <td><a th:href="@{/city/showFormForUpdate/{id}(id=${city.getId()})}"
+                           class="btn btn-primary">Update</a>
+                        <a th:href="@{/city/delete/{id}(id=${city.getId()})}"
+                           class="btn btn-danger">Delete</a></td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+    <a th:href="@{/}">Back to the Main page</a>
+</div>
 </body>
 </html>

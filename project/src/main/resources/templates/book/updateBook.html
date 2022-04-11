@@ -3,9 +3,7 @@
 <head>
     <meta charset="ISO-8859-1">
     <title>Book Management System</title>
-
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
 </head>
 <body>
 <div class="container">
@@ -16,7 +14,6 @@
     <form action="#" th:action="@{/save}" th:object="${book}"
           method="POST">
 
-        <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}"/>
 
         <input type="text" th:field="*{title}" class="form-control mb-4 col-4">
@@ -32,7 +29,7 @@
 
     <hr>
 
-    <a th:href="@{/}"> Back to Book List</a>
+    <a th:href="@{/book/}">Back to Book List</a>
 </div>
 </body>
 </html>

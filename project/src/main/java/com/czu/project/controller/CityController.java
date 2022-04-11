@@ -32,7 +32,7 @@ public class CityController {
     @PostMapping("/save")
     public String saveCity(@ModelAttribute("city") City city) {
         cityService.save(city);
-        return "redirect:/";
+        return "redirect:/city/";
     }
 
     @GetMapping("/showFormForUpdate/{id}")
@@ -45,6 +45,6 @@ public class CityController {
     @GetMapping("/delete/{id}")
     public String deleteCity(@PathVariable(value = "id") int id) {
         cityService.deleteById(id);
-        return "redirect:/";
+        return "redirect:/city/";
     }
 }

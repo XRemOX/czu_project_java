@@ -1,12 +1,44 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Library App</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
 </head>
 <body>
-<div>
-    <a th:href="@{/book/}">Click to see books list!</a>
+<div class="container text-center">
+    <div>
+        <h1>Welcome to Library App</h1>
+    </div>
+    <div class="p-2">
+        <a class="h2" th:href="@{/city/}">List of cities</a>
+    </div>
+    <div class="p-2">
+        <a class="h2" th:href="@{/city/addNew/}">Add city</a>
+    </div>
+    <div class="p-2">
+        <a class="h2" th:href="@{/library/}">List of libraries</a>
+    </div>
+    <div class="p-2">
+        <a class="h2" th:href="@{/library/addNew/}">Add library</a>
+    </div>
+    <div class="p-2">
+        <a class="h2" th:href="@{/book/}">List of books</a>
+    </div>
+    <div class="p-2">
+        <a class="h2" th:href="@{/book/addNew/}">Add book</a>
+    </div>
+    <div>
+        <h1>Library app REST API Endpoints</h1>
+    </div>
+    <div class="p-2">
+        <a class="h2" th:href="@{/api/city}">City</a>
+    </div>
+    <div class="p-2">
+        <a class="h2" th:href="@{/api/library}">Library</a>
+    </div>
+    <div class="p-2">
+        <a class="h2" th:href="@{/api/book}">Book</a>
+    </div>
 </div>
 </body>
 </html>
